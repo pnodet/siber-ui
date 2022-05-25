@@ -8,7 +8,7 @@ interface Props {
 	hasDismissButton?: boolean;
 }
 
-export const Alert = ({
+const Alert = ({
 	type = 'error',
 	children,
 	hasAccent = false,
@@ -19,20 +19,20 @@ export const Alert = ({
 	if (type === 'success') color = 'green';
 	if (type === 'warning') color = 'yellow';
 
-	const {...icons} = HIcons;
+	const { ...icons } = HIcons;
 	let icon: keyof typeof HIcons = 'XCircleIcon';
 	if (type === 'info') icon = 'InformationCircleIcon';
 	if (type === 'success') icon = 'CheckCircleIcon';
 	if (type === 'warning') icon = 'ExclamationIcon';
 
 	const CustomIcon = icons[icon];
-	const iconStyle = `h-5 w-5 text-${color}-400`;
+	const iconStyle = ` h-5 w-5 text-${color}-400 `;
+
+	console.log(color)
 
 	return (
 		<div
-			className={`bg-${color}-100 rounded-md p-4 ${
-				hasAccent && `border-l-4 border-${color}-400}`
-			}`}
+			className={`bg-${color}-100 rounded-md p-4 ${hasAccent && ` border-l-4  border-${color}-700}`}`}
 		>
 			<div className='flex'>
 				<div className='flex-shrink-0'>
@@ -57,3 +57,5 @@ export const Alert = ({
 		</div>
 	);
 };
+
+export { Alert }
