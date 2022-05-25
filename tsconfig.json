@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"lib": ["ES2021", "DOM", "DOM.Iterable"],
+		"incremental": true,
+		"isolatedModules": true,
+		"importsNotUsedAsValues": "error",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"moduleResolution": "node",
+		"module": "es2020",
+		"target": "es2020",
+		"strict": false,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"noUncheckedIndexedAccess": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "dist",
+		"declarationMap": true,
+		"baseUrl": ".",
+		"useDefineForClassFields": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"typeRoots": ["./node_modules/@types"]
+	},
+	"include": ["src", "stories"],
+	"references": [{ "path": "./tsconfig.node.json" }]
+}
