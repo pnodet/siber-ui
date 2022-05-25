@@ -1,8 +1,8 @@
-import type {ComponentStory} from '@storybook/react';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
 import {Badge, BadgeProps} from '../src';
 
-const meta = {
+export default {
 	title: 'Badge',
 	component: Badge,
 	argTypes: {
@@ -46,11 +46,9 @@ const meta = {
 			control: {type: 'select'},
 		},
 	},
-};
+} as ComponentMeta<typeof Badge>;
 
-export default meta;
-
-const Template = ({size, isRounded, color, hasDot}) => (
+const Template = ({size, isRounded, color, hasDot}: BadgeProps) => (
 	<Badge size={size} hasDot={hasDot} color={color} isRounded={isRounded}>
 		Hello
 	</Badge>

@@ -47,7 +47,7 @@ export default {
 			control: {type: 'select'},
 		},
 	},
-};
+} as ComponentMeta<typeof Checkbox>;
 
 const Template = ({
 	size,

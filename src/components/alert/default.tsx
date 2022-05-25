@@ -6,7 +6,7 @@ type Props = {
 	type?: 'error' | 'success' | 'warning' | 'info';
 	hasAccent?: boolean;
 	hasDismissButton?: boolean;
-}
+};
 
 export type AlertProps = Props;
 
@@ -21,7 +21,7 @@ const Alert = ({
 	if (type === 'success') color = 'green';
 	if (type === 'warning') color = 'yellow';
 
-	const { ...icons } = HIcons;
+	const {...icons} = HIcons;
 	let icon: keyof typeof HIcons = 'XCircleIcon';
 	if (type === 'info') icon = 'InformationCircleIcon';
 	if (type === 'success') icon = 'CheckCircleIcon';
@@ -34,8 +34,9 @@ const Alert = ({
 
 	return (
 		<div
-			className={`bg-${color}-100 rounded-md p-4 ${hasAccent && ` border-l-4  border-${color}-700}`
-				}`}
+			className={`bg-${color}-100 rounded-md p-4 ${
+				hasAccent && ` border-l-4  border-${color}-700}`
+			}`}
 		>
 			<div className='flex'>
 				<div className='flex-shrink-0'>
@@ -61,4 +62,4 @@ const Alert = ({
 	);
 };
 
-export { Alert };
+export {Alert};
