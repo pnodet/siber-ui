@@ -1,6 +1,6 @@
-import type { ComponentStory } from '@storybook/react';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import { Alert } from '../src';
+import {Alert} from '../src';
 
 export default {
 	title: 'Alert',
@@ -12,9 +12,9 @@ export default {
 			},
 		},
 	},
-};
+} as ComponentMeta<typeof Alert>;
 
-const Template: ComponentStory<typeof Alert> = ({ ...args }) => (
+const Template: ComponentStory<typeof Alert> = ({...args}) => (
 	<Alert {...args}>Hello</Alert>
 );
 /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */

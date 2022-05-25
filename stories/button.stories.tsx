@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import {
 	Button,
 	Circular as CircularButton,
@@ -11,7 +11,7 @@ export default {
 	title: 'Button',
 	component: Button,
 	argTypes: {
-		onclick: { action: 'test' },
+		onclick: {action: 'test'},
 		variant: {
 			table: {
 				disable: true,
@@ -23,7 +23,7 @@ export default {
 			},
 		},
 	},
-};
+} as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = ({
 	size,
@@ -37,7 +37,6 @@ const Template: ComponentStory<typeof Button> = ({
 		color={color}
 		isDisabled={isDisabled}
 		isRounded={isRounded}
-
 		{...args}
 	>
 		Hello
