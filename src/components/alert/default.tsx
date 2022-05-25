@@ -19,7 +19,7 @@ const Alert = ({
 	if (type === 'success') color = 'green';
 	if (type === 'warning') color = 'yellow';
 
-	const { ...icons } = HIcons;
+	const {...icons} = HIcons;
 	let icon: keyof typeof HIcons = 'XCircleIcon';
 	if (type === 'info') icon = 'InformationCircleIcon';
 	if (type === 'success') icon = 'CheckCircleIcon';
@@ -28,11 +28,13 @@ const Alert = ({
 	const CustomIcon = icons[icon];
 	const iconStyle = ` h-5 w-5 text-${color}-400 `;
 
-	console.log(color)
+	console.log(color);
 
 	return (
 		<div
-			className={`bg-${color}-100 rounded-md p-4 ${hasAccent && ` border-l-4  border-${color}-700}`}`}
+			className={`bg-${color}-100 rounded-md p-4 ${
+				hasAccent && ` border-l-4  border-${color}-700}`
+			}`}
 		>
 			<div className='flex'>
 				<div className='flex-shrink-0'>
@@ -58,4 +60,4 @@ const Alert = ({
 	);
 };
 
-export { Alert }
+export {Alert};

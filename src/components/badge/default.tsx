@@ -1,8 +1,8 @@
-import { overrideTailwindClasses as twOverride } from 'tailwind-override';
+import {overrideTailwindClasses as twOverride} from 'tailwind-override';
 import classnames from 'classnames';
 import React from 'react';
-import type { Color } from 'src/types/colors';
-import type { Size } from 'src/types/sizes';
+import type {Color} from 'src/types/colors';
+import type {Size} from 'src/types/sizes';
 
 type Props = {
 	hasDot?: boolean;
@@ -36,7 +36,6 @@ const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
 	if (size === 'lg') s_ = 'px-3 text-lg';
 	if (size === 'md') s_ = 'px-3 text-md';
 	if (size === 'xl') s_ = 'px-3 text-xl';
-
 
 	let r_ = 'rounded-full';
 	if (size === 'xs' && !isRounded) r_ = 'rounded-sm';
@@ -72,4 +71,4 @@ const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
 Badge.defaultProps = defaultProps;
 Badge.displayName = 'SiberBadge';
 
-export { Badge };
+export {Badge};

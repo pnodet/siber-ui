@@ -1,6 +1,6 @@
-import type { ComponentStory } from '@storybook/react';
+import type {ComponentStory} from '@storybook/react';
 import React from 'react';
-import { Alert } from '../src';
+import {Alert} from '../src';
 
 const meta = {
 	title: 'Alert',
@@ -16,29 +16,23 @@ const meta = {
 
 export default meta;
 
-const Template: ComponentStory<typeof Alert> = ({ ...args }) => <Alert  {...args}    >
-	Hello
-</Alert>;
-;
-
-
-
+const Template: ComponentStory<typeof Alert> = ({...args}) => (
+	<Alert {...args}>Hello</Alert>
+);
 /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
 export const Error: ComponentStory<typeof Alert> = Template.bind({});
 Error.args = {
-	type: 'error'
-}
+	type: 'error',
+};
 export const Sucess: ComponentStory<typeof Alert> = Template.bind({});
 Sucess.args = {
-	type: 'success'
-}
+	type: 'success',
+};
 export const Info: ComponentStory<typeof Alert> = Template.bind({});
 Info.args = {
-	type: 'info'
-}
+	type: 'info',
+};
 export const Warning: ComponentStory<typeof Alert> = Template.bind({});
 Warning.args = {
-	type: 'warning'
-}
-
-
+	type: 'warning',
+};
