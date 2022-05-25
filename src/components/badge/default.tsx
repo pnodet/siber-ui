@@ -44,8 +44,18 @@ const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
 		`bg-${color}-100 text-${color}-800`,
 	);
 
+	let d_ = '-ml-0.5 mr-1.5';
+	if (size === 'lg' && isRounded) d_ = '-ml-1 mr-1.5';
+	if (size === 'sm' && !isRounded) d_ = 'mr-1.5';
+	const dotClasses = classnames(d_, `h-2 w-2 text-${color}-400`);
+
 	return (
 		<span className={twOverride(`${classes} ${className}`)} {...props}>
+			{hasDot && (
+				<svg className={dotClasses} fill='currentColor' viewBox='0 0 8 8'>
+					<circle cx={4} cy={4} r={3} />
+				</svg>
+			)}
 			{children}
 		</span>
 	);
