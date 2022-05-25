@@ -37,10 +37,10 @@ pnpm i siber-ui
 First you will need to add the config in your `tailwind.config.js`
 
 ```js
-const withSiber = require('siber-ui/dist/utils/with-siber.js')
+const withSiber = require('siber-ui/dist/utils/with-siber.js');
 
 const config = {
-  /* your custom tailwind config */
+	/* your custom tailwind config */
 };
 
 module.exports = withSiber(config);
@@ -49,9 +49,9 @@ module.exports = withSiber(config);
 Now you're good to go and use siber-ui in your project.
 
 ```jsx
-import { Button } from "siber-ui";
+import {Button} from 'siber-ui';
 
 export default function Example() {
-  return <Button>Button</Button>;
+	return <Button>Button</Button>;
 }
 ```

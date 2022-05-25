@@ -79,6 +79,6 @@
     "xo": "^0.49.0"
   },
   "lint-staged": {
-    "*.{css,md,js,jsx,ts,tsx}": "prettier --write"
+    "**/*.{css,md,js,jsx,ts,tsx}": "prettier --write"
   }
 }
