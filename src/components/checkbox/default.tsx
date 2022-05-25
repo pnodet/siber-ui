@@ -1,8 +1,8 @@
 import classnames from 'classnames';
-import { overrideTailwindClasses as twOverride } from 'tailwind-override';
+import {overrideTailwindClasses as twOverride} from 'tailwind-override';
 import React from 'react';
-import type { Color } from 'src/types/colors';
-import type { Size } from 'src/types/sizes';
+import type {Color} from 'src/types/colors';
+import type {Size} from 'src/types/sizes';
 
 type CheckboxEventTarget = {
 	checked: boolean;
@@ -92,16 +92,20 @@ const Checkbox: React.FC<CheckboxProps> = ({
 			<input
 				type='checkbox'
 				disabled={disabled}
-				checked={checked}
+				checked={isCheckedState}
 				className={twOverride(`${checkboxClasses} ${className}`)}
 				onChange={handleChange}
 				{...props}
 			/>
-			<span className={`${getLabelSize(size)} flex items-center justify-center `}>{children}</span>
+			<span
+				className={`${getLabelSize(size)} flex items-center justify-center `}
+			>
+				{children}
+			</span>
 		</label>
 	);
 };
 
 Checkbox.defaultProps = defaultProps;
 Checkbox.displayName = 'SiberCheckbox';
-export { Checkbox };
+export {Checkbox};

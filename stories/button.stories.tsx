@@ -1,5 +1,6 @@
 import React from 'react';
-import type { ComponentStory } from '@storybook/react';
+import type {ComponentStory} from '@storybook/react';
+import {action} from '@storybook/addon-actions';
 import {
 	Button,
 	Circular as CircularButton,
@@ -11,7 +12,7 @@ export default {
 	title: 'Button',
 	component: Button,
 	argTypes: {
-		onclick: { action: 'test' },
+		onclick: {action: 'test'},
 		variant: {
 			table: {
 				disable: true,
@@ -37,7 +38,7 @@ const Template: ComponentStory<typeof Button> = ({
 		color={color}
 		isDisabled={isDisabled}
 		isRounded={isRounded}
-
+		onClick={action('test')}
 		{...args}
 	>
 		Hello
