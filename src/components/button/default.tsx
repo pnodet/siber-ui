@@ -1,22 +1,23 @@
 import React from 'react';
 import {overrideTailwindClasses as twOverride} from 'tailwind-override';
 import classnames from 'classnames';
-import type {Color} from '../../types/colors';
+import type {Color} from 'src/types/colors';
+import type {Size} from 'src/types/sizes';
 import {getColors, getSizes} from './utils';
 
-export interface ButtonProps {
+type Props = {
 	color?: Color;
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size?: Size;
 	variant?: 'primary' | 'secondary' | 'white';
 	isDisabled?: boolean;
 	isRounded?: boolean;
 	type?: React.ButtonHTMLAttributes<any>['type'];
-}
+};
 
-type NativeAttrs = Omit<React.ButtonHTMLAttributes<any>, keyof ButtonProps>;
-export type FullButtonProps = ButtonProps & NativeAttrs;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<any>, keyof Props>;
+export type ButtonProps = Props & NativeAttrs;
 
-const defaultProps: Partial<FullButtonProps> = {
+const defaultProps: Partial<ButtonProps> = {
 	type: 'button' as React.ButtonHTMLAttributes<any>['type'],
 	size: 'md',
 	color: 'sky',
@@ -27,10 +28,10 @@ const defaultProps: Partial<FullButtonProps> = {
 
 const Button = React.forwardRef<
 	HTMLButtonElement,
-	React.PropsWithChildren<FullButtonProps>
+	React.PropsWithChildren<ButtonProps>
 >(
 	(
-		btnProps: FullButtonProps & typeof defaultProps,
+		btnProps: ButtonProps & typeof defaultProps,
 		ref?: React.Ref<HTMLButtonElement>,
 	): JSX.Element => {
 		const {

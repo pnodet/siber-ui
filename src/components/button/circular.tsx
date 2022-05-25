@@ -1,35 +1,32 @@
 import React from 'react';
 import {overrideTailwindClasses as twOverride} from 'tailwind-override';
-import {PlusSmIcon as PlusSmIconSolid} from '@heroicons/react/solid';
 import {PlusSmIcon as PlusSmIconOutline} from '@heroicons/react/outline';
 import classnames from 'classnames';
-import type {Color} from '../../types/colors';
+import type {Color} from 'src/types/colors';
+import type {Size} from 'src/types/sizes';
 
-export interface CircularButtonProps {
+type Props = {
 	color?: Color;
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size?: Size;
 	isDisabled?: boolean;
 	icon?: JSX.Element;
 	type?: React.ButtonHTMLAttributes<any>['type'];
-}
+};
 
-type NativeAttrs = Omit<
-	React.ButtonHTMLAttributes<any>,
-	keyof CircularButtonProps
->;
-export type FullCircularButtonProps = CircularButtonProps & NativeAttrs;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<any>, keyof Props>;
+export type CircularButtonProps = Props & NativeAttrs;
 
-const defaultProps: Partial<FullCircularButtonProps> = {
+const defaultProps: Partial<CircularButtonProps> = {
 	type: 'button' as React.ButtonHTMLAttributes<any>['type'],
 	size: 'md',
 	color: 'sky',
 	isDisabled: false,
-	icon: <PlusSmIconOutline className="h-6 w-6" aria-hidden="true" />,
+	icon: <PlusSmIconOutline className='h-6 w-6' aria-hidden='true' />,
 };
 
-const Circular = React.forwardRef<HTMLButtonElement, FullCircularButtonProps>(
+const Circular = React.forwardRef<HTMLButtonElement, CircularButtonProps>(
 	(
-		btnProps: FullCircularButtonProps & typeof defaultProps,
+		btnProps: CircularButtonProps & typeof defaultProps,
 		ref?: React.Ref<HTMLButtonElement>,
 	): JSX.Element => {
 		const {size, color, type, isDisabled, className, icon, ...props} = btnProps;
