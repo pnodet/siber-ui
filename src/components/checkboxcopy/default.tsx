@@ -45,23 +45,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
 	const [isCheckedState, setIsCheckedState] = React.useState(checked);
 
-	const handleChange = React.useCallback(
-		(event: React.ChangeEvent<HTMLInputElement>) => {
-			if (disabled) return;
-			const selfEvent: CheckboxEvent = {
-				target: {
-					checked: !isCheckedState,
-				},
-				stopPropagation: event.stopPropagation,
-				preventDefault: event.preventDefault,
-				nativeEvent: event,
-			};
+	const handleChange = () => {
+		setIsCheckedState(value => !value)
+	}
 
-			setIsCheckedState(!isCheckedState);
-			if (onChange) onChange(selfEvent);
-		},
-		[isCheckedState, onChange, disabled],
-	);
+
 
 	const getLabelSize = (size: string) => {
 		if (size === 'xs') return 'px-2.5 py-1.5 text-xs';

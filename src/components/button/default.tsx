@@ -1,9 +1,9 @@
 import React from 'react';
-import {overrideTailwindClasses as twOverride} from 'tailwind-override';
+import { overrideTailwindClasses as twOverride } from 'tailwind-override';
 import classnames from 'classnames';
-import type {Color} from 'src/types/colors';
-import type {Size} from 'src/types/sizes';
-import {getColors, getSizes} from './utils';
+import type { Color } from 'src/types/colors';
+import type { Size } from 'src/types/sizes';
+import { getColors, getSizes } from './utils';
 
 type Props = {
 	color?: Color;
@@ -74,4 +74,4 @@ const Button = React.forwardRef<
 );
 
 Button.defaultProps = defaultProps;
-export {Button};
+export { Button };

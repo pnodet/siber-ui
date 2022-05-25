@@ -1,8 +1,8 @@
-import type {ComponentStory} from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
-import {Alert} from '../src';
+import { Alert } from '../src';
 
-const meta = {
+export default {
 	title: 'Alert',
 	component: Alert,
 	argTypes: {
@@ -14,9 +14,7 @@ const meta = {
 	},
 };
 
-export default meta;
-
-const Template: ComponentStory<typeof Alert> = ({...args}) => (
+const Template: ComponentStory<typeof Alert> = ({ ...args }) => (
 	<Alert {...args}>Hello</Alert>
 );
 /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
