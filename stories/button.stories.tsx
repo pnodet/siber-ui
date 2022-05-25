@@ -3,8 +3,8 @@ import type {ComponentStory} from '@storybook/react';
 import {
 	Button,
 	Circular as CircularButton,
-	FullButtonProps,
-	FullCircularButtonProps,
+	ButtonProps,
+	CircularButtonProps,
 } from '../src';
 
 const meta = {
@@ -32,7 +32,7 @@ const Template: ComponentStory<typeof Button> = ({
 	color,
 	isDisabled,
 	...args
-}: FullButtonProps) => (
+}: ButtonProps) => (
 	<Button
 		size={size}
 		color={color}
@@ -67,7 +67,7 @@ const TemplateCircular: ComponentStory<typeof CircularButton> = ({
 	color,
 	isDisabled,
 	icon,
-}: FullCircularButtonProps) => (
+}: CircularButtonProps) => (
 	<CircularButton
 		size={size}
 		color={color}
@@ -77,4 +77,4 @@ const TemplateCircular: ComponentStory<typeof CircularButton> = ({
 );
 
 /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const DefaultCircular = TemplateCircular.bind({});
+export const Circular = TemplateCircular.bind({});
