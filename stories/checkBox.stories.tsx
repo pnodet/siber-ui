@@ -47,7 +47,7 @@ export default {
 			control: {type: 'select'},
 		},
 	},
-} as ComponentMeta<typeof Checkbox>;
+};
 
 const Template = ({
 	size,
@@ -62,14 +62,15 @@ const Template = ({
 			size={size}
 			color={color}
 			className={className}
-			checked={isChecked}
-			onChange={action('Button is clicked!')}
+			checked={checked}
 			disabled={disabled}
+			onChange={action('Button is clicked!')}
 		>
 			Hello
 		</Checkbox>
 	);
 };
+
 /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
 export const Primary: ComponentStory<typeof Checkbox> = Template.bind({});
 Primary.args = {};

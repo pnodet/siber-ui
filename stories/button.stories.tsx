@@ -24,7 +24,7 @@ export default {
 			},
 		},
 	},
-} as ComponentMeta<typeof Button>;
+};
 
 const Template: ComponentStory<typeof Button> = ({
 	size,
