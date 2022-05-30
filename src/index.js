@@ -4,3 +4,4 @@ export * from './components/badge';
 export * from './components/checkbox';
 export * from './components/toggle';
 export * from './components/action-panels';
+export * from './components/avatar';
