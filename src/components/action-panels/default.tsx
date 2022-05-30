@@ -33,8 +33,8 @@ export type ActionPanelProps = CommonProps &
 	(LinkProps | BtnProps | ToggleProps);
 
 export const ActionPanel = ({
-	title,
-	description,
+	title = 'Test de titre',
+	description = "Description non exaustive d'informations qui n'ont pas de sens",
 	ctaPosition = 'bottom',
 	bgColor = 'gray',
 	...props
@@ -49,7 +49,7 @@ export const ActionPanel = ({
 				>
 					<a
 						href={props.href}
-						className='font-medium text-indigo-600 hover:text-indigo-500'
+						className='font-medium text-indigo-600 hover:text-indigo-500 whitespace-nowrap'
 					>
 						{props.action}
 						<span aria-hidden='true'>&rarr;</span>
