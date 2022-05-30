@@ -11,11 +11,6 @@ export default {
 				disable: true,
 			},
 		},
-		imageLink: {
-			table: {
-				disable: true,
-			},
-		},
 		letters: {
 			table: {
 				disable: true,

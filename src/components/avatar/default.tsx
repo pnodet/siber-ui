@@ -54,6 +54,13 @@ const Avatar = ({
 
 	const r_ = isRounded ? 'rounded-full' : 'rounded';
 
+	type valueProps = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+
+	const getColor = (color: Color, value: valueProps): string => {
+		if (color === 'black' || color === 'white') return color;
+		return `${color}-${value}`;
+	};
+
 	const Container = ({children}: {children: JSX.Element}) => (
 		<span className='relative inline-block'>
 			{children}
@@ -61,7 +68,7 @@ const Avatar = ({
 				<span
 					className={classnames(
 						notificationSize,
-						`bg-${notificationColor}-400`,
+						`bg-${getColor(notificationColor, 400)}`,
 						notificationPosition === 'bottom' ? 'bottom-0' : 'top-0',
 						'absolute right-0 block rounded-full ring-2 ring-white',
 					)}
@@ -98,7 +105,10 @@ const Avatar = ({
 					className={classnames(
 						r_,
 						spanSize,
-						`inline-flex items-center justify-center bg-${props.bgColor}-500`,
+						`inline-flex items-center justify-center bg-${getColor(
+							props.bgColor,
+							500,
+						)}`,
 					)}
 				>
 					<span className={`text-${size} font-medium leading-none text-white`}>
