@@ -1,8 +1,8 @@
 import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import {Avatar} from '../src';
+import {Avatar, AvatarProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Avatar> = {
 	title: 'Avatar',
 	component: Avatar,
 	argTypes: {
@@ -17,26 +17,32 @@ export default {
 			},
 		},
 	},
-} as ComponentMeta<typeof Avatar>;
+};
 
-const Template: ComponentStory<typeof Avatar> = ({...args}) => {
+const template = ({...args}: AvatarProps) => {
 	return <Avatar {...args} />;
 };
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const WithImage: ComponentStory<typeof Avatar> = Template.bind({});
+
+export const WithImage: ComponentStory<typeof Avatar> = args =>
+	template({...args});
 WithImage.args = {
 	variant: 'image',
 	imageLink:
 		'https://i0.wp.com/i.pinimg.com/736x/10/3e/27/103e27dd78a67a85e31695c96ce69fef.jpg?resize=160,120',
 };
 
-export const WithText: ComponentStory<typeof Avatar> = Template.bind({});
+export const WithText: ComponentStory<typeof Avatar> = args =>
+	template({...args});
 WithText.args = {
 	variant: 'letters',
 	letters: 'PN',
+	bgColor: 'blue',
 };
 
-export const WithPlaceholder: ComponentStory<typeof Avatar> = Template.bind({});
+export const WithPlaceholder: ComponentStory<typeof Avatar> = args =>
+	template({...args});
 WithPlaceholder.args = {
 	variant: 'placeholder',
 };
+
+export default all;

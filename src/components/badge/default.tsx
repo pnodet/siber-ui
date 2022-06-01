@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import React from 'react';
 import type {Color} from 'src/types/colors';
 import type {Size} from 'src/types/sizes';
+import {getColor} from '../../utils/get-color';
 
 type Props = {
 	hasDot?: boolean;
@@ -20,7 +21,7 @@ const defaultProps: Props = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
 export type BadgeProps = Props & NativeAttrs;
-
+/* eslint-disable-next-line  complexity */
 const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
 	hasDot,
 	children,
@@ -48,13 +49,13 @@ const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
 		s_,
 		r_,
 		'inline-flex items-center py-0.5 font-medium',
-		`bg-${color}-100 text-${color}-800`,
+		`bg-${getColor(color, 100)} text-${getColor(color, 800)}`,
 	);
 
 	let d_ = '-ml-0.5 mr-1.5';
 	if (size === 'lg' && isRounded) d_ = '-ml-1 mr-1.5';
 	if (size === 'sm' && !isRounded) d_ = 'mr-1.5';
-	const dotClasses = classnames(d_, `h-2 w-2 text-${color}-400`);
+	const dotClasses = classnames(d_, `h-2 w-2 text-${getColor(color, 400)}`);
 
 	return (
 		<span className={twOverride(`${classes} ${className}`)} {...props}>

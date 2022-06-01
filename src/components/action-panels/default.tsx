@@ -2,13 +2,23 @@ import React, {Dispatch, SetStateAction} from 'react';
 import {Switch} from '@headlessui/react';
 import classnames from 'classnames';
 import type {Color} from 'src/types/colors';
+import {getColor} from '../../utils/get-color';
 
-interface CommonProps {
-	title: string;
-	description: string;
+interface Props {
+	title?: string;
+	description?: string;
 	ctaPosition?: 'bottom' | 'right';
 	bgColor?: Color;
+	type?: 'link' | 'button' | 'toggle';
 }
+
+const defaultProps: Props = {
+	title: 'Test de titre',
+	type: 'button',
+	description: 'test de description',
+	ctaPosition: 'bottom',
+	bgColor: 'sky',
+};
 
 interface LinkProps {
 	href: string;
@@ -29,17 +39,16 @@ interface ToggleProps {
 	type: 'toggle';
 }
 
-export type ActionPanelProps = CommonProps &
-	(LinkProps | BtnProps | ToggleProps);
+export type ActionPanelProps = Props & (LinkProps | BtnProps | ToggleProps);
 
-export const ActionPanel = ({
-	title = 'Test de titre',
-	description = "Description non exaustive d'informations qui n'ont pas de sens",
-	ctaPosition = 'bottom',
-	bgColor = 'gray',
+const ActionPanel: React.FC<ActionPanelProps> = ({
+	title,
+	description,
+	ctaPosition,
+	bgColor,
 	...props
-}: ActionPanelProps) => {
-	const Cta = (): JSX.Element => {
+}: ActionPanelProps): JSX.Element => {
+	const Cta = ({...props}: ActionPanelProps): JSX.Element => {
 		if (props.type === 'link') {
 			return (
 				<div
@@ -93,7 +102,16 @@ export const ActionPanel = ({
 				>
 					<button
 						type='button'
-						className={`inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 font-medium text-${props.btnColor}-700 bg-${props.btnColor}-100 hover:bg-${props.btnColor}-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${props.btnColor}-500 sm:text-sm`}
+						className={`inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 font-medium text-${getColor(
+							props.btnColor,
+							700,
+						)} bg-${getColor(props.btnColor, 100)} hover:bg-${getColor(
+							props.btnColor,
+							200,
+						)} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${getColor(
+							props.btnColor,
+							500,
+						)} sm:text-sm`}
 						onClick={props.onClick}
 					>
 						{props.action}
@@ -122,9 +140,14 @@ export const ActionPanel = ({
 					</div>
 				</div>
 				<div className='flex h-full flex-col items-center justify-center'>
-					<Cta />
+					<Cta {...props} />
 				</div>
 			</div>
 		</div>
 	);
 };
+
+ActionPanel.defaultProps = defaultProps;
+ActionPanel.displayName = 'SiberActionPannel';
+
+export {ActionPanel};

@@ -1,13 +1,13 @@
 import React from 'react';
 import type {Color} from '../../types/colors';
 
-type Props = {
+export type TextAreaProps = {
 	title: string;
 	defaultValue: string;
 	color?: Color;
 };
 
-export const Textarea: React.FC<Props> = ({
+export const Textarea: React.FC<TextAreaProps> = ({
 	title,
 	color = 'sky',
 	defaultValue = '',

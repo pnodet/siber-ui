@@ -1,5 +1,5 @@
 import React from 'react';
-import type {ComponentStory} from '@storybook/react';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {
 	Button,
@@ -8,11 +8,10 @@ import {
 	CircularButtonProps,
 } from '../src';
 
-export default {
+const all: ComponentMeta<typeof Button> = {
 	title: 'Button',
 	component: Button,
 	argTypes: {
-		onclick: {action: 'test'},
 		variant: {
 			table: {
 				disable: true,
@@ -26,7 +25,7 @@ export default {
 	},
 };
 
-const Template: ComponentStory<typeof Button> = ({
+const template = ({
 	size,
 	isRounded,
 	color,
@@ -45,25 +44,24 @@ const Template: ComponentStory<typeof Button> = ({
 	</Button>
 );
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Primary: ComponentStory<typeof Button> = Template.bind({});
+export const Primary: ComponentStory<typeof Button> = args =>
+	template({...args});
 Primary.args = {
 	variant: 'primary',
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Secondary: ComponentStory<typeof Button> = Template.bind({});
+export const Secondary: ComponentStory<typeof Button> = args =>
+	template({...args});
 Secondary.args = {
 	variant: 'secondary',
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const White: ComponentStory<typeof Button> = Template.bind({});
+export const White: ComponentStory<typeof Button> = args => template({...args});
 White.args = {
 	variant: 'white',
 };
 
-const TemplateCircular: ComponentStory<typeof CircularButton> = ({
+const templateCircular = ({
 	size,
 	color,
 	isDisabled,
@@ -77,5 +75,7 @@ const TemplateCircular: ComponentStory<typeof CircularButton> = ({
 	/>
 );
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Circular = TemplateCircular.bind({});
+export const Circular: ComponentStory<typeof CircularButton> = args =>
+	templateCircular({...args});
+
+export default all;

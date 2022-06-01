@@ -1,5 +1,7 @@
 import React from 'react';
 import * as HIcons from '@heroicons/react/solid';
+import type {Color} from 'src/types/colors';
+import {getColor} from '../../utils/get-color';
 
 type Props = {
 	children: React.ReactNode;
@@ -16,10 +18,10 @@ const Alert = ({
 	hasAccent = false,
 	hasDismissButton = false,
 }: Props): JSX.Element => {
-	let color = 'red';
-	if (type === 'info') color = 'blue';
-	if (type === 'success') color = 'green';
-	if (type === 'warning') color = 'yellow';
+	let color = 'red' as Color;
+	if (type === 'info') color = 'blue' as Color;
+	if (type === 'success') color = 'green' as Color;
+	if (type === 'warning') color = 'yellow' as Color;
 
 	const {...icons} = HIcons;
 	let icon: keyof typeof HIcons = 'XCircleIcon';
@@ -30,12 +32,10 @@ const Alert = ({
 	const CustomIcon = icons[icon];
 	const iconStyle = ` h-5 w-5 text-${color}-400 `;
 
-	console.log(color);
-
 	return (
 		<div
-			className={`bg-${color}-100 rounded-md p-4 ${
-				hasAccent && ` border-l-4  border-${color}-700}`
+			className={`bg-${getColor(color, 100)} rounded-md p-4 ${
+				hasAccent && ` border-l-4  border-${getColor(color, 700)}`
 			}`}
 		>
 			<div className='flex'>
@@ -49,7 +49,19 @@ const Alert = ({
 						<div className='-mx-1.5 -my-1.5'>
 							<button
 								type='button'
-								className={`inline-flex bg-${color}-50 rounded-md p-1.5 text-${color}-500 hover:bg-${color}-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-${color}-50 focus:ring-${color}-600`}
+								className={`inline-flex bg-${getColor(
+									color,
+									100,
+								)} rounded-md p-1.5 text-${getColor(
+									color,
+									500,
+								)} hover:bg-${getColor(
+									color,
+									100,
+								)} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-${getColor(
+									color,
+									100,
+								)} focus:ring-${getColor(color, 600)}`}
 							>
 								<span className='sr-only'>Dismiss</span>
 								<HIcons.XIcon className='h-5 w-5' aria-hidden='true' />

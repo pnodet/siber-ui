@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import type {ComponentStory} from '@storybook/react';
-import {action} from '@storybook/addon-actions';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import {Toggle, ToggleProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Toggle> = {
 	title: 'Toggle',
 	component: Toggle,
 	argTypes: {
@@ -46,8 +45,8 @@ export default {
 	},
 };
 
-const Template = ({size, className, color, disabled}: ToggleProps) => {
-	const [isChecked, setIsChecked] = useState(false);
+export const Default = ({size, className, color, disabled}: ToggleProps) => {
+	const [isChecked, setIsChecked] = useState<boolean>(false);
 	return (
 		<Toggle
 			size={size}
@@ -62,5 +61,4 @@ const Template = ({size, className, color, disabled}: ToggleProps) => {
 	);
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Primary: ComponentStory<typeof Toggle> = Template.bind({});
+export default all;

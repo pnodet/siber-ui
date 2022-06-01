@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {action} from '@storybook/addon-actions';
-import type {ComponentStory} from '@storybook/react';
+import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import {Checkbox, CheckboxProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Checkbox> = {
 	title: 'Checkbox',
 	component: Checkbox,
 	argTypes: {
@@ -49,14 +49,13 @@ export default {
 	},
 };
 
-const Template = ({
+export const Default = ({
 	size,
 	className,
 	checked,
 	color,
 	disabled,
 }: CheckboxProps) => {
-	const [isChecked, setIsChecked] = useState(false);
 	return (
 		<Checkbox
 			size={size}
@@ -71,6 +70,4 @@ const Template = ({
 	);
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Primary: ComponentStory<typeof Checkbox> = Template.bind({});
-Primary.args = {};
+export default all;

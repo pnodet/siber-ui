@@ -2,7 +2,7 @@ import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
 import {Badge, BadgeProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Badge> = {
 	title: 'Badge',
 	component: Badge,
 	argTypes: {
@@ -46,12 +46,10 @@ export default {
 			control: {type: 'select'},
 		},
 	},
-} as ComponentMeta<typeof Badge>;
+};
 
-const Template = ({size, isRounded, color, hasDot}: BadgeProps) => (
-	<Badge size={size} hasDot={hasDot} color={color} isRounded={isRounded}>
-		Hello
-	</Badge>
+export const Default = ({...props}: BadgeProps) => (
+	<Badge {...props}>Hello</Badge>
 );
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Default: ComponentStory<typeof Badge> = Template.bind({});
+
+export default all;

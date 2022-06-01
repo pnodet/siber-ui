@@ -1,8 +1,8 @@
 import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import {Alert} from '../src';
+import {Alert, AlertProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Alert> = {
 	title: 'Alert',
 	component: Alert,
 	argTypes: {
@@ -12,25 +12,28 @@ export default {
 			},
 		},
 	},
-} as ComponentMeta<typeof Alert>;
+};
 
-const Template: ComponentStory<typeof Alert> = ({...args}) => (
-	<Alert {...args}>Hello</Alert>
-);
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Error: ComponentStory<typeof Alert> = Template.bind({});
+const template = ({...args}: AlertProps) => <Alert {...args}>Hello</Alert>;
+
+export const Error: ComponentStory<typeof Alert> = args => template({...args});
 Error.args = {
 	type: 'error',
 };
-export const Sucess: ComponentStory<typeof Alert> = Template.bind({});
+
+export const Sucess: ComponentStory<typeof Alert> = args => template({...args});
 Sucess.args = {
 	type: 'success',
 };
-export const Info: ComponentStory<typeof Alert> = Template.bind({});
+
+export const Info: ComponentStory<typeof Alert> = args => template({...args});
 Info.args = {
 	type: 'info',
 };
-export const Warning: ComponentStory<typeof Alert> = Template.bind({});
+
+export const Warning: ComponentStory<typeof Alert> = args =>
+	template({...args});
 Warning.args = {
 	type: 'warning',
 };
+export default all;

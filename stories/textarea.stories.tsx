@@ -1,14 +1,14 @@
 import type {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import {Textarea} from '../src';
+import {Textarea, TextAreaProps} from '../src';
 
-export default {
+const all: ComponentMeta<typeof Textarea> = {
 	title: 'Textarea',
 	component: Textarea,
-} as ComponentMeta<typeof Textarea>;
+};
 
-const Template: ComponentStory<typeof Textarea> = ({...args}) => {
+export const Default = ({...args}: TextAreaProps) => {
 	return <Textarea {...args} />;
 };
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-export const Default: ComponentStory<typeof Textarea> = Template.bind({});
+
+export default all;

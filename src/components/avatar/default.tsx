@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import type {Color} from '../../types/colors';
+import {getColor} from '../../utils/get-color';
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 type Position = 'bottom' | 'top';
@@ -28,7 +29,8 @@ export interface LettersProps {
 	bgColor?: Color;
 }
 
-type Props = CommonProps & (PlaceholderProps | ImageProps | LettersProps);
+export type AvatarProps = CommonProps &
+	(PlaceholderProps | ImageProps | LettersProps);
 
 const Avatar = ({
 	size = 'md',
@@ -37,7 +39,7 @@ const Avatar = ({
 	notificationPosition = 'bottom',
 	notificationColor = 'green',
 	...props
-}: Props): JSX.Element => {
+}: AvatarProps): JSX.Element => {
 	let spanSize = 'h-10 w-10';
 	if (size === 'xs') spanSize = 'h-6 w-6';
 	if (size === 'sm') spanSize = 'h-8 w-8';
@@ -53,13 +55,6 @@ const Avatar = ({
 	if (size === '2xl') notificationSize = ' h-4 w-4';
 
 	const r_ = isRounded ? 'rounded-full' : 'rounded';
-
-	type valueProps = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
-
-	const getColor = (color: Color, value: valueProps): string => {
-		if (color === 'black' || color === 'white') return color;
-		return `${color}-${value}`;
-	};
 
 	const Container = ({children}: {children: JSX.Element}) => (
 		<span className='relative inline-block'>
