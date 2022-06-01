@@ -8,3 +8,4 @@ export * from './components/avatar';
 export * from './components/textarea';
 export * from './components/dropdown';
 export * from './components/banner';
+export * from './components/empty-state';
