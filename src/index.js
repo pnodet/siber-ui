@@ -11,3 +11,4 @@ export * from './components/banner';
 export * from './components/empty-state';
 export * from './components/feed';
 export * from './components/pagination';
+export * from './components/steps';
