@@ -3,7 +3,7 @@ import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/solid';
 
 import type {Color} from '../../types/colors';
 
-type Props = {
+export type PaginationProps = {
 	count?: number;
 	page?: number;
 	onChange?: (number: number) => void;
@@ -128,7 +128,7 @@ const Pagination = ({
 	},
 	page = 1,
 	limit = 4,
-}: Props) => {
+}: PaginationProps) => {
 	const [current, setCurrent] = useState<number>(page);
 
 	return (
